@@ -67,7 +67,7 @@ describe("useClickOutside", () => {
     const { getByText, rerender } = render(<MockComponent />);
 
     rerender(<MockComponent />);
-    
+
     act(() => {
       fireEvent.click(getByText("foo"), leftClick);
     });
@@ -85,6 +85,5 @@ describe("useClickOutside", () => {
     });
 
     expect(callback).toHaveBeenCalledTimes(1);
-
   });
 });
