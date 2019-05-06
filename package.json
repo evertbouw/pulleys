@@ -1,5 +1,5 @@
 {
-  "name": "pulleys",
+  "name": "@evertbouw/pulleys",
   "version": "0.0.0",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
@@ -37,7 +37,7 @@
     "react": "^16.8.0",
     "react-dom": "^16.8.0"
   },
-  "optionalDependencies": {
+  "optionalPeerDependencies": {
     "@types/react": "^16.8.0",
     "@types/react-dom": "^16.8.0"
   }
