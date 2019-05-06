@@ -27,6 +27,12 @@ interface UseEventListener {
         listener: (e: WindowEventMap[K]) => void;
         active?: boolean;
     }): void;
+    (args: {
+        eventName: string;
+        listener: (e: Event) => void;
+        element?: HTMLElement | Window | null;
+        active?: boolean;
+    }): void;
 }
 
 export const useEventListener: UseEventListener = ({
@@ -37,11 +43,11 @@ export const useEventListener: UseEventListener = ({
 }: {
     eventName: string;
     listener: (e: Event) => void;
-    element?: MediaQueryList | Window | HTMLElement;
+    element?: MediaQueryList | Window | HTMLElement | null;
     active?: boolean;
 }) => {
     useEffect(() => {
-        if (active) {
+        if (element !== null && active) {
             if ("addListener" in element) {
                 element.addListener(listener);
 
