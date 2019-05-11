@@ -2,7 +2,18 @@ import { useEffect, useRef } from "react";
 
 type Cleanup = void | (() => void);
 
-export const useInterval = (callback: () => Cleanup, delay: number | null) => {
+/**
+ * It's Dan Abramov's declarative setInterval hook
+ * but the callback function can return a cleanup function
+ * that gets called when the interval stops
+ * 
+ * https://overreacted.io/making-setinterval-declarative-with-react-hooks/
+ * 
+ * @param {function} callback 
+ * @param {number|null} delay 
+ * @returns {void}
+ */
+export const useInterval = (callback: () => Cleanup, delay: number | null): void => {
   const savedCallback = useRef(callback);
 
   useEffect(() => {

@@ -31,6 +31,31 @@ interface UseEvent {
   }): Value;
 }
 
+/**
+ * @typedef UseEventParams
+ * @property {object} [element=window] the element to attach the listener to
+ * @property {string} eventName the name of the event
+ * @property {function} getValue function that receives the event and returns a value
+ * @property {*} initialState the return value before any events fired
+ */
+
+/**
+ * Listen to events and turn these into a value
+ * 
+ * @param {object} UseEventParams
+ * @return {*} value
+ * @example
+ * const getValue = event => event.target.tagName;
+ * const SomeComponent = () => {
+ *   const tagName = useEvent({
+ *     eventName: "click",
+ *     getValue,
+ *     initialState: "nothing yet"
+ *   });
+ * 
+ *   return <div>You've clicked on a {tagName}</div>;
+ * }
+ */
 export const useEvent: UseEvent = <
   Elem extends Window | undefined,
   K extends keyof WindowEventMap,

@@ -1,6 +1,15 @@
 import { useRef, useLayoutEffect, useCallback } from "react";
 
-export const useGetter = <Value>(value: Value) => {
+/**
+ * When you have a form and a bunch of handlers,
+ * instead of closing over all the values and recreating the handlers too often,
+ * pass the form state to this hook to get a referentially stable getter function.
+ * Then call this getter in your handlers.
+ * 
+ * @param {*} value 
+ * @returns {function} valueGetter
+ */
+export const useGetter = <Value>(value: Value): () => Value => {
   const ref = useRef(value);
 
   useLayoutEffect(() => {

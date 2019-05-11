@@ -32,6 +32,20 @@ interface UseEventListener {
   }): void;
 }
 
+/**
+ * @typedef EventListenerParams
+ * @property {string} eventName The name of the event
+ * @property {function} listener The function to call when an event occurs
+ * @property {object} [element=window] The element to attach the listener to
+ * @property {boolean} [active=true] whether the listener should be attached currently
+ */
+
+/**
+ * Declaratively attach an event listener to any node
+ * 
+ * @param {object} EventListenerParams
+ * @returns {void}
+ */
 export const useEventListener: UseEventListener = ({
   eventName,
   listener,
@@ -42,7 +56,7 @@ export const useEventListener: UseEventListener = ({
   listener: (e: Event) => void;
   element?: MediaQueryList | Window | HTMLElement | null;
   active?: boolean;
-}) => {
+}): void => {
   useEffect(() => {
     if (element !== null && active) {
       if ("addListener" in element) {
