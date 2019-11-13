@@ -1,12 +1,14 @@
 {
   "name": "@evertbouw/pulleys",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
   "sideEffects": false,
   "repository": "git@github.com:evertbouw/pulleys.git",
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "author": "Evert Bouw <bouw@outlook.com>",
   "license": "MIT",
   "scripts": {
