@@ -1,7 +1,6 @@
 import { act, renderHook } from "react-hooks-testing-library";
 import { cleanup, fireEvent } from "react-testing-library";
 import { useEvent } from "../src/useEvent";
-import { useCallback } from "react";
 
 const leftClick = { button: 0, clientX: 50 };
 
