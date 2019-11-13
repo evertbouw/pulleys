@@ -1,5 +1,5 @@
-import { act, renderHook } from "react-hooks-testing-library";
-import { fireEvent } from "react-testing-library";
+import { fireEvent } from "@testing-library/react";
+import { act, renderHook } from "@testing-library/react-hooks";
 import { useEventListener } from "../src/useEventListener";
 
 const leftClick = { button: 0 };

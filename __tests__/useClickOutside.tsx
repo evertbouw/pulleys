@@ -1,6 +1,6 @@
+import { cleanup, fireEvent, render } from "@testing-library/react";
+import { act } from "@testing-library/react-hooks";
 import React, { useRef } from "react";
-import { act } from "react-hooks-testing-library";
-import { fireEvent, render, cleanup } from "react-testing-library";
 import { useClickOutside } from "../src/useClickOutside";
 
 const leftClick = { button: 0 };
