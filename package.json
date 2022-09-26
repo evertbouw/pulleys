@@ -21,7 +21,7 @@
     "lint": "eslint src",
     "fmt": "prettier --write src/*.{ts,tsx}",
     "gendocs": "typedoc src/index.ts",
-    "deploy": "gh-pages -d docs"
+    "deploydocs": "gh-pages -d docs"
   },
   "devDependencies": {
     "@testing-library/dom": "^8.18.1",
