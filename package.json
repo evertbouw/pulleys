@@ -1,44 +1,57 @@
 {
   "name": "@evertbouw/pulleys",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "main": "./lib/cjs/index.js",
   "module": "./lib/esm/index.js",
   "types": "./lib/esm/index.d.ts",
+  "files": [
+    "./lib"
+  ],
   "sideEffects": false,
   "repository": "git@github.com:evertbouw/pulleys.git",
   "author": "Evert Bouw <bouw@outlook.com>",
   "license": "MIT",
   "scripts": {
-    "build:esm": "tsc",
-    "build:cjs": "tsc --module commonjs --outdir ./lib/cjs",
-    "build": "yarn rimraf ./lib && yarn build:esm && yarn build:cjs",
-    "test": "jest"
+    "build:esm": "tsc --project tsconfig.esm.json",
+    "build:cjs": "tsc --project tsconfig.cjs.json",
+    "build": "rimraf ./lib && pnpm build:esm && pnpm build:cjs",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
+    "lint": "eslint src",
+    "fmt": "prettier --write src/*.{ts,tsx}"
   },
   "devDependencies": {
-    "@testing-library/react": "^11.2.6",
-    "@testing-library/react-hooks": "^5.1.2",
-    "@types/jest": "^26.0.23",
-    "@types/react": "^17.0.5",
-    "@types/react-dom": "^17.0.3",
-    "@typescript-eslint/parser": "^4.22.1",
-    "eslint": "^7.26.0",
-    "eslint-plugin-react": "^7.23.2",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "jest": "^26.6.3",
-    "prettier": "^2.3.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-test-renderer": "^17.0.2",
+    "@testing-library/dom": "^8.18.1",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/react": "^13.4.0",
+    "@testing-library/user-event": "^14.4.3",
+    "@tsconfig/vite-react": "^1.0.1",
+    "@types/react": "^18.0.21",
+    "@types/react-dom": "^18.0.6",
+    "@typescript-eslint/eslint-plugin": "^5.38.0",
+    "@typescript-eslint/parser": "^5.38.0",
+    "@vitejs/plugin-react": "^2.1.0",
+    "@vitest/coverage-c8": "^0.23.4",
+    "eslint": "^8.24.0",
+    "eslint-plugin-react": "^7.31.8",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-testing-library": "^5.7.0",
+    "jest-matchmedia-mock": "^1.1.0",
+    "jsdom": "^20.0.0",
+    "prettier": "^2.7.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "rimraf": "^3.0.2",
-    "ts-jest": "^26.5.6",
-    "typescript": "^4.2.4"
+    "typescript": "^4.8.3",
+    "vite": "^3.1.3",
+    "vitest": "^0.23.4"
   },
   "peerDependencies": {
-    "react": "^16.8.0",
+    "react": ">16.8.0",
     "react-dom": "^16.8.0"
   },
   "optionalPeerDependencies": {
-    "@types/react": "^16.8.0",
-    "@types/react-dom": "^16.8.0"
+    "@types/react": ">16.8.0",
+    "@types/react-dom": ">16.8.0"
   }
 }

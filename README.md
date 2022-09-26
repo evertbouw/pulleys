@@ -4,7 +4,7 @@ Do the heavy lifting with these React hooks!
 
 ## installing
 
-`npm i @evertbouw/pulleys` or `yarn add @evertbouw/pulleys`
+`npm i @evertbouw/pulleys` or `yarn add @evertbouw/pulleys` or `pnpm add @evertbouw/pulleys`
 
 Comes with typescript definitions.
 
@@ -22,7 +22,7 @@ https://github.com/evertbouw/pulleys/tree/master/src
 
 ## contributing
 
-This project really needs more docs and tests. (and more hooks?) Feel free to open PRs and issues!
+Feel free to open PRs and issues for more hooks or documentation! 
 
 ## chat
 

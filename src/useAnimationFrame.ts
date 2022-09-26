@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
 /**
  * Call the provided function on every animation frame.
@@ -25,24 +25,21 @@ import { useEffect } from "react";
  *   return <div>{number}</div>;
  * };
  */
-export const useAnimationFrame = (
-  tick: () => void,
-  running: boolean = true
-): void => {
-  useEffect(() => {
-    let frameId: number;
+export const useAnimationFrame = (tick: () => void, running = true): void => {
+    useEffect(() => {
+        let frameId: number;
 
-    const loop = () => {
-      if (running) {
-        tick();
+        const loop = () => {
+            if (running) {
+                tick();
+                frameId = requestAnimationFrame(loop);
+            }
+        };
+
         frameId = requestAnimationFrame(loop);
-      }
-    };
 
-    frameId = requestAnimationFrame(loop);
-
-    return () => {
-      cancelAnimationFrame(frameId);
-    };
-  }, [tick, running]);
+        return () => {
+            cancelAnimationFrame(frameId);
+        };
+    }, [tick, running]);
 };

@@ -1,26 +1,29 @@
 module.exports = {
   env: {
     browser: true,
-    es6: true
+    es2021: true,
+    node: true,
   },
-  extends: "eslint:recommended",
-  globals: {
-    Atomics: "readonly",
-    SharedArrayBuffer: "readonly"
-  },
+  extends: [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:testing-library/react",
+  ],
+  overrides: [],
   parser: "@typescript-eslint/parser",
   parserOptions: {
-    ecmaFeatures: {
-      jsx: true
-    },
-    ecmaVersion: 2018,
-    sourceType: "module"
+    ecmaVersion: "latest",
+    sourceType: "module",
   },
-  plugins: ["react", "react-hooks"],
+  plugins: ["react", "@typescript-eslint"],
   rules: {
-    "no-undef": 0,
-    "no-unused-vars": 0,
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn"
-  }
+    "react/react-in-jsx-scope": "off",
+  },
+  settings: {
+    react: {
+      version: "detect",
+    },
+  },
 };

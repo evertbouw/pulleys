@@ -1,79 +1,46 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
+import { useGetter } from './useGetter';
+import type { EventMapFor } from './utils/EventMapFor';
 
-interface UseEventListener {
-  <Elem extends MediaQueryList, K extends keyof MediaQueryListEventMap>(args: {
-    eventName: K;
-    listener: (e: MediaQueryListEventMap[K]) => void;
-    element: Elem;
-    active?: boolean;
-  }): void;
-  <Elem extends HTMLElement, K extends keyof HTMLElementEventMap>(args: {
-    eventName: K;
-    listener: (e: HTMLElementEventMap[K]) => void;
-    element: Elem;
-    active?: boolean;
-  }): void;
-  <Elem extends Window, K extends keyof WindowEventMap>(args: {
-    eventName: K;
-    listener: (e: WindowEventMap[K]) => void;
-    element: Elem;
-    active?: boolean;
-  }): void;
-  <K extends keyof WindowEventMap>(args: {
-    eventName: K;
-    listener: (e: WindowEventMap[K]) => void;
-    active?: boolean;
-  }): void;
-  (args: {
-    eventName: string;
-    listener: (e: Event) => void;
-    element?: HTMLElement | Window | null;
-    active?: boolean;
-  }): void;
-}
-
-/**
- * @typedef EventListenerParams
- * @property {string} eventName The name of the event
- * @property {function} listener The function to call when an event occurs
- * @property {object} [element=window] The element to attach the listener to
- * @property {boolean} [active=true] whether the listener should be attached currently
- */
-
-/**
- * Declaratively attach an event listener to any node
- * 
- * @param {object} EventListenerParams
- * @returns {void}
- */
-export const useEventListener: UseEventListener = ({
-  eventName,
-  listener,
-  element = window,
-  active = true
+export const useEventListener = <
+    EventName extends keyof EventMapFor<Target>,
+    Event extends EventMapFor<Target>[EventName],
+    Target extends Window | HTMLElement | MediaQueryList = Window,
+>({
+    target,
+    eventName,
+    listener,
+    active = true,
+    passive = true,
 }: {
-  eventName: string;
-  listener: (e: Event) => void;
-  element?: MediaQueryList | Window | HTMLElement | null;
-  active?: boolean;
-}): void => {
-  useEffect(() => {
-    if (element !== null && active) {
-      if ("addListener" in element) {
-        element.addListener(listener);
+    target?: Target;
+    eventName: EventName;
+    listener: (event: Event) => void;
+    active?: boolean;
+    passive?: boolean;
+}) => {
+    const getListener = useGetter(listener);
+
+    useEffect(() => {
+        if (!active) return undefined;
+
+        const element = target ?? window;
+
+        const handleEvent = (event: Event) => {
+            getListener()(event);
+        };
+
+        element.addEventListener(
+            eventName as string,
+            handleEvent as EventListener,
+            { passive },
+        );
 
         return () => {
-          element.removeListener(listener);
+            element.removeEventListener(
+                eventName as string,
+                handleEvent as EventListener,
+            );
         };
-      }
-
-      element.addEventListener(eventName, listener);
-
-      return () => {
-        element.removeEventListener(eventName, listener);
-      };
-    }
-
-    return;
-  }, [eventName, listener, element, active]);
+    }, [eventName, target, active, getListener, passive]);
 };

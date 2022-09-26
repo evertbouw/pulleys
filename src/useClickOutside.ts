@@ -1,5 +1,7 @@
-import { useCallback, RefObject } from "react";
-import { useEventListener } from "./useEventListener";
+import { useCallback, type RefObject } from 'react';
+import { useEventListener } from './useEventListener';
+import { useGetter } from './useGetter';
+import { isDefined } from './utils/isDefined';
 
 /**
  * @typedef ClickOutsideParams
@@ -20,10 +22,8 @@ import { useEventListener } from "./useEventListener";
  * const MyComponent = () => {
  *   const innerElementRef = useRef(null);
  *
- *   const callback = useCallback(() => console.log("clicked"), []);
- *
  *   useClickOutside({
- *     callback,
+ *     callback: () => console.log("clicked"),
  *     innerElementRef,
  *   });
  *
@@ -33,32 +33,36 @@ import { useEventListener } from "./useEventListener";
  * };
  */
 export const useClickOutside = ({
-  innerElementRef,
-  outerElementRef,
-  active = true,
-  callback
+    innerElementRef,
+    outerElementRef,
+    active = true,
+    callback,
 }: {
-  innerElementRef: RefObject<HTMLElement>;
-  outerElementRef?: RefObject<HTMLElement>;
-  active?: boolean;
-  callback: () => void;
+    innerElementRef: RefObject<HTMLElement>;
+    outerElementRef?: RefObject<HTMLElement>;
+    active?: boolean;
+    callback: () => void;
 }): void => {
-  const listener = useCallback(
-    (event: Event) => {
-      if (
-        innerElementRef.current !== null &&
-        !innerElementRef.current.contains(event.target as Node)
-      ) {
-        callback();
-      }
-    },
-    [innerElementRef, callback]
-  );
+    const getCallback = useGetter(callback);
 
-  useEventListener({
-    eventName: "click",
-    element: outerElementRef !== undefined ? outerElementRef.current : window,
-    active,
-    listener
-  });
+    const listener = useCallback(
+        (event: Event) => {
+            if (
+                isDefined(innerElementRef.current) &&
+                !innerElementRef.current.contains(event.target as Node)
+            ) {
+                getCallback()();
+            }
+        },
+        [getCallback, innerElementRef],
+    );
+
+    useEventListener({
+        target: outerElementRef?.current ?? window,
+        eventName: 'click',
+        active:
+            active &&
+            isDefined(outerElementRef) === isDefined(outerElementRef?.current),
+        listener,
+    });
 };

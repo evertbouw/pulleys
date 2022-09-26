@@ -1,0 +1,10 @@
+{
+  "extends": "@tsconfig/vite-react/tsconfig.json",
+  "compilerOptions": {
+    "noEmit": false,
+    "outDir": "./lib/esm",
+    "sourceMap": true,
+    "declaration": true
+  },
+  "exclude": ["**/*.test.tsx"]
+}
