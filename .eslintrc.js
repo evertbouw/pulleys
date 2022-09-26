@@ -17,9 +17,10 @@ module.exports = {
     ecmaVersion: "latest",
     sourceType: "module",
   },
-  plugins: ["react", "@typescript-eslint"],
+  plugins: ["react", "@typescript-eslint", "eslint-plugin-tsdoc"],
   rules: {
     "react/react-in-jsx-scope": "off",
+    "tsdoc/syntax": "error"
   },
   settings: {
     react: {

@@ -20,8 +20,8 @@
     "coverage": "vitest run --coverage",
     "lint": "eslint src",
     "fmt": "prettier --write src/*.{ts,tsx}",
-    "gendocs": "typedoc src/index.ts",
-    "deploydocs": "gh-pages -d docs"
+    "docs:generate": "typedoc src/index.ts",
+    "docs:deploy": "gh-pages -d docs"
   },
   "devDependencies": {
     "@testing-library/dom": "^8.18.1",
@@ -39,6 +39,7 @@
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-testing-library": "^5.7.0",
+    "eslint-plugin-tsdoc": "^0.2.17",
     "gh-pages": "^4.0.0",
     "jsdom": "^20.0.0",
     "prettier": "^2.7.1",
@@ -52,7 +53,7 @@
   },
   "peerDependencies": {
     "react": ">16.8.0",
-    "react-dom": "^16.8.0"
+    "react-dom": ">16.8.0"
   },
   "optionalPeerDependencies": {
     "@types/react": ">16.8.0",
