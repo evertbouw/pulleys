@@ -1,37 +1,41 @@
 import { useEffect } from 'react';
+import { useGetter } from './useGetter';
 
 /**
  * Call the provided function on every animation frame.
- * Can be paused or stopped by passing `false` as a second parameter.
  *
- * @param {function} tick
- * @param {boolean} [running=true]
- * @returns {void}
+ * @param tick - function to be called every tick
+ * @param running - pause the loop by passing `false`
  * @example
- * import { useAnimationFrame } from " @evertbouw/pulleys";
+ * ```
+ * import { useAnimationFrame } from "@evertbouw/pulleys";
  *
  * const SomeComponent = () => {
  *   const [number, setNumber] = useState(0);
  *
- *   const animate = useCallback(() => {
+ *   // no need to memoize
+ *   const animate = () => {
  *     setNumber(cur => cur + 1);
- *   }, []);
+ *   };
  *
  *   useAnimationFrame(
  *     animate,        // call this function every frame
- *     number < 100,   // until number is 100 or higher
+ *     number < 100,   // until number is 100
  *   );
  *
  *   return <div>{number}</div>;
  * };
+ * ```
  */
 export const useAnimationFrame = (tick: () => void, running = true): void => {
+    const getTick = useGetter(tick);
+
     useEffect(() => {
         let frameId: number;
 
         const loop = () => {
             if (running) {
-                tick();
+                getTick()();
                 frameId = requestAnimationFrame(loop);
             }
         };
@@ -41,5 +45,5 @@ export const useAnimationFrame = (tick: () => void, running = true): void => {
         return () => {
             cancelAnimationFrame(frameId);
         };
-    }, [tick, running]);
+    }, [getTick, running]);
 };

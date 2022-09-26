@@ -9,7 +9,14 @@ const initialState = () =>
 /**
  * Get the X and Y coordinates of the mouse cursor
  *
- * @returns {Array} coordinates
+ * @returns Tuple with X and Y coordinates
+ * @example
+ * ```tsx
+ * const MyComponent = () => {
+ *   const [x, y] = useMousePosition();
+ *   return <div>Mouse is at [{x}, {y}]</div>
+ * }
+ * ```
  */
 export const useMousePosition = (): [number, number] =>
     useEvent({

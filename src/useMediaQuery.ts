@@ -6,8 +6,15 @@ const getValue = (event: MediaQueryListEvent): boolean => event.matches;
 /**
  * Test a media query
  *
- * @param {string} query
- * @returns {boolean} matches
+ * @param query - The media query to test
+ * @returns Boolean indicating if the query currently matches
+ * @example
+ * ```tsx
+ * const MyComponent = () => {
+ *   const screenIsSmall = useMediaQuery('(max-width: 800px)');
+ *   return <div>{screenIsSmall ? "small screen" : "big screen"}</div>
+ * }
+ * ```
  */
 export const useMediaQuery = (query: string): boolean => {
     const target = useMemo(() => window.matchMedia(query), [query]);

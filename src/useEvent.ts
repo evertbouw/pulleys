@@ -2,6 +2,21 @@ import { useCallback, useState } from 'react';
 import { useEventListener } from './useEventListener';
 import type { EventMapFor } from './utils/EventMapFor';
 
+/**
+ * Pick a value from an event
+ * @example
+ * ```
+ * const MyComponent = () => {
+ *   const key = useEvent({
+ *     eventName: "keydown",
+ *     getValue: event => event.key,
+ *     initialState: ""
+ *   });
+ *
+ *   return <div>Last used key was {key}</div>;
+ * }
+ * ```
+ */
 export const useEvent = <
     EventName extends keyof EventMapFor<Target>,
     Event extends EventMapFor<Target>[EventName],
@@ -13,9 +28,13 @@ export const useEvent = <
     getValue,
     initialState,
 }: {
+    /** event target, defaults to window */
     target?: Target;
+    /** name of the event */
     eventName: EventName;
+    /** function that receives the event and should return the value you are interested in */
     getValue: (event: Event) => Value;
+    /** initial state or function that returns initial state */
     initialState: Value | (() => Value);
 }): Value => {
     const [state, setState] = useState(initialState);

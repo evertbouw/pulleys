@@ -4,11 +4,15 @@ import { useEventListener } from './useEventListener';
 /**
  * Add a listener for a keydown event on a specific key.
  *
- * @param {string} keyCode the specific key you want to listen to
- * @param {function} callback the function that will be called when the key has been pressed. Receives the keydown event
- * @returns {void}
+ * @param keyCode - the specific key you want to listen to
+ * @param callback - the function that will be called when the key has been pressed. Receives the keydown event
  * @example
- * useKeyCallback("d", console.log);
+ * ```tsx
+ * const MyComponent = () => {
+ *   useKeyCallback("Escape", () => window.close());
+ *   return <div>Press escape to close window</div>
+ * }
+ * ```
  */
 export const useKeyCallback = (
     keyCode: string,

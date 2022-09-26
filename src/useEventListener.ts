@@ -2,6 +2,20 @@ import { useEffect } from 'react';
 import { useGetter } from './useGetter';
 import type { EventMapFor } from './utils/EventMapFor';
 
+/**
+ * Never call addEventListener again, just let this hook handle it
+ * @example
+ * ```
+ * const MyComponent = () => {
+ *   useEventListener({
+ *     eventName: "keydown",
+ *     listener: event => console.log(event.key),
+ *   });
+ *
+ *   return <div>Last used key was {key}</div>;
+ * }
+ * ```
+ */
 export const useEventListener = <
     EventName extends keyof EventMapFor<Target>,
     Event extends EventMapFor<Target>[EventName],

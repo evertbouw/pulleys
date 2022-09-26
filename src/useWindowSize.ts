@@ -6,7 +6,14 @@ const getWindowSize = (): [number, number] =>
 /**
  * Get the width and height of the viewport
  *
- * @returns {Array} dimensions
+ * @returns Tuple with width and height integers
+ * @example
+ * ```tsx
+ * const MyComponent = () => {
+ *   const [width, height] = useWindowSize();
+ *   return <div>Window is {width} by {height}</div>
+ * }
+ * ```
  */
 export const useWindowSize = (): [number, number] =>
     useEvent({

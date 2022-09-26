@@ -11,12 +11,7 @@ describe('useClickOutside', () => {
         const callback = vi.fn();
 
         const MockComponent = () => {
-            const innerElementRef = useRef<HTMLDivElement>(null);
-
-            useClickOutside({
-                callback,
-                innerElementRef,
-            });
+            const innerElementRef = useClickOutside(callback);
 
             return (
                 <div ref={innerElementRef}>
@@ -43,8 +38,7 @@ describe('useClickOutside', () => {
             const innerElementRef = useRef<HTMLDivElement>(null);
             const outerElementRef = useRef<HTMLDivElement>(null);
 
-            useClickOutside({
-                callback,
+            useClickOutside(callback, {
                 innerElementRef,
                 outerElementRef,
             });

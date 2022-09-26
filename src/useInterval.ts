@@ -1,4 +1,5 @@
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
+import { useGetter } from './useGetter';
 
 type Cleanup = void | (() => void);
 
@@ -9,19 +10,14 @@ type Cleanup = void | (() => void);
  *
  * https://overreacted.io/making-setinterval-declarative-with-react-hooks/
  *
- * @param {function} callback
- * @param {number|null} delay
- * @returns {void}
+ * @param callback - function to be called. Can return another function that runs as cleanup when `delay` changes or component unmounts
+ * @param delay - number of milliseconds between calls
  */
 export const useInterval = (
     callback: () => Cleanup,
     delay: number | null,
 ): void => {
-    const savedCallback = useRef(callback);
-
-    useEffect(() => {
-        savedCallback.current = callback;
-    }, [callback]);
+    const savedCallback = useGetter(callback);
 
     useEffect(() => {
         if (delay === null) {
@@ -31,7 +27,7 @@ export const useInterval = (
         let cleanup: Cleanup;
 
         const tick = () => {
-            cleanup = callback();
+            cleanup = savedCallback()();
         };
 
         const id = setInterval(tick, delay);
@@ -42,5 +38,5 @@ export const useInterval = (
                 cleanup();
             }
         };
-    }, [callback, delay]);
+    }, [savedCallback, delay]);
 };
