@@ -1,6 +1,9 @@
 export { useAnimationFrame } from './useAnimationFrame';
-export { useBoolean } from "./useBoolean";
-export { useClickOutside, type UseClickOutsideOptions } from './useClickOutside';
+export { useBoolean } from './useBoolean';
+export {
+    useClickOutside,
+    type UseClickOutsideOptions,
+} from './useClickOutside';
 export { useEvent } from './useEvent';
 export { useEventListener } from './useEventListener';
 export { useForceUpdate } from './useForceUpdate';

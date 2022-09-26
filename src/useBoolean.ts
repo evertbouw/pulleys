@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 
 /**
  * State preconfigured to do everything you could want with a boolean value.
- * 
+ *
  * @param initializer - boolean or function that returns a boolean
  * @returns tuple with current state and an object with state setters
  * @example

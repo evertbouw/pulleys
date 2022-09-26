@@ -43,12 +43,15 @@ export interface UseClickOutsideOptions {
  * };
  * ```
  */
-export const useClickOutside = (callback: () => void, {
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    innerElementRef = useRef<any>(null),
-    outerElementRef,
-    active = true,
-}: UseClickOutsideOptions = {}): RefObject<any> => {
+export const useClickOutside = (
+    callback: () => void,
+    {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        innerElementRef = useRef<any>(null),
+        outerElementRef,
+        active = true,
+    }: UseClickOutsideOptions = {},
+): RefObject<any> => {
     const getCallback = useGetter(callback);
 
     const listener = useCallback(

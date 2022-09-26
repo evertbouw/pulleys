@@ -14,7 +14,7 @@ describe('useAnimationFrame', () => {
     it('works', () => {
         const callback = vi.fn();
         renderHook(() => useAnimationFrame(callback, true));
-        
+
         vi.advanceTimersByTime(100);
 
         expect(callback).toHaveBeenCalledTimes(6);
@@ -23,12 +23,14 @@ describe('useAnimationFrame', () => {
     it('cancels', () => {
         const callback = vi.fn();
         let running = true;
-        const { rerender } = renderHook(() => useAnimationFrame(callback, running));
-        
+        const { rerender } = renderHook(() =>
+            useAnimationFrame(callback, running),
+        );
+
         running = false;
         rerender();
         vi.advanceTimersByTime(100);
 
         expect(callback).not.toHaveBeenCalled();
-    })
+    });
 });
