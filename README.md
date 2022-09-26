@@ -4,7 +4,13 @@ Do the heavy lifting with these React hooks!
 
 ## installing
 
-`npm i @evertbouw/pulleys` or `yarn add @evertbouw/pulleys` or `pnpm add @evertbouw/pulleys`
+```sh
+npm i @evertbouw/pulleys
+# or
+yarn add @evertbouw/pulleys
+# or
+pnpm add @evertbouw/pulleys
+```
 
 Comes with typescript definitions.
 
@@ -16,9 +22,9 @@ https://dev.to/evertbouw/let-s-make-a-reusable-react-hook-e63
 
 ## api
 
-Browse the source code to see what hooks are available.
+Browse the available functions in the docs
 
-https://github.com/evertbouw/pulleys/tree/master/src
+https://evertbouw.github.io/pulleys
 
 ## contributing
 
