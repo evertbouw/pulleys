@@ -12,6 +12,6 @@ export { useInterval } from './useInterval';
 export { useKeyCallback } from './useKeyCallback';
 export { useMediaQuery } from './useMediaQuery';
 export { useMousePosition } from './useMousePosition';
-export { usePrompt } from './usePrompt';
+export { usePreventLeave } from './usePreventLeave';
 export { useUpdateEffect } from './useUpdateEffect';
 export { useWindowSize } from './useWindowSize';

@@ -1,11 +1,11 @@
 import { renderHook } from '@testing-library/react';
 import { act } from 'react-dom/test-utils';
 import { describe, expect, it, vi } from 'vitest';
-import { usePrompt, listener } from './usePrompt';
+import { usePreventLeave, listener } from './usePreventLeave';
 
-describe('usePrompt', () => {
+describe('usePreventLeave', () => {
     it('works', () => {
-        renderHook(() => usePrompt(true));
+        renderHook(() => usePreventLeave(true));
 
         act(() => {
             window.close();

@@ -20,7 +20,7 @@ export const listener = (event: BeforeUnloadEvent) => {
  * }
  * ```
  */
-export const usePrompt = (active: boolean): void =>
+export const usePreventLeave = (active: boolean): void =>
     useEventListener({
         eventName: 'beforeunload',
         listener,
