@@ -7,7 +7,7 @@ import { useGetter } from './useGetter';
  * @param tick - function to be called every tick
  * @param running - pause the loop by passing `false`
  * @example
- * ```
+ * ```tsx
  * import { useAnimationFrame } from "@evertbouw/pulleys";
  *
  * const SomeComponent = () => {

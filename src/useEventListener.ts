@@ -5,7 +5,7 @@ import type { EventMapFor } from './utils/EventMapFor';
 /**
  * Never call addEventListener again, just let this hook handle it
  * @example
- * ```
+ * ```tsx
  * const MyComponent = () => {
  *   useEventListener({
  *     eventName: "keydown",

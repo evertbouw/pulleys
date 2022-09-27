@@ -5,7 +5,7 @@ import type { EventMapFor } from './utils/EventMapFor';
 /**
  * Pick a value from an event
  * @example
- * ```
+ * ```tsx
  * const MyComponent = () => {
  *   const key = useEvent({
  *     eventName: "keydown",

@@ -33,7 +33,7 @@ export interface UseClickOutsideOptions {
  * @param options - {@link UseClickOutsideOptions}
  * @returns a ref object you can attach to your node
  * @example
- * ```
+ * ```tsx
  * const MyComponent = () => {
  *   const elementRef = useClickOutside(() => console.log("clicked"));
  *
