@@ -14,6 +14,7 @@ import { useMemo, useState } from 'react';
  *     <>
  *       <Button onClick={handlers.toggle}>Toggle</Button>
  *       <Button onClick={handlers.on}>Open</Button>
+ *       <Button onClick={() => { handlers.set(Math.random() < 0.5); }}>Random</Button>
  *       {open && <Button onClick={handlers.off}>Close</Button>}
  *     </>
  *   );
