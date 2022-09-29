@@ -6,17 +6,17 @@ import { isDefined } from './utils/isDefined';
 /**
  * options for useClickOutside
  */
-export interface UseClickOutsideOptions {
+export interface UseClickOutsideOptions<Foo extends HTMLElement>{
     /**
      * a ref object to the target element
      * @defaultValue creates a ref if not provided
      */
-    innerElementRef?: RefObject<HTMLElement>;
+    innerElementRef?: RefObject<Foo>;
     /**
      * an optional ref to the outside element.
      * @defaultValue uses `window` as the default target
      */
-    outerElementRef?: RefObject<HTMLElement>;
+    outerElementRef?: RefObject<Foo>;
     /**
      * flag to indicate if the listener should be currently active
      * @defaultValue true
@@ -43,15 +43,15 @@ export interface UseClickOutsideOptions {
  * };
  * ```
  */
-export const useClickOutside = (
+export const useClickOutside = <InnerElement extends HTMLElement>(
     callback: () => void,
     {
         // eslint-disable-next-line react-hooks/rules-of-hooks
-        innerElementRef = useRef<any>(null),
+        innerElementRef = useRef<InnerElement>(null),
         outerElementRef,
         active = true,
-    }: UseClickOutsideOptions = {},
-): RefObject<any> => {
+    }: UseClickOutsideOptions<InnerElement> = {},
+): RefObject<InnerElement> => {
     const getCallback = useGetter(callback);
 
     const listener = useCallback(
@@ -75,5 +75,5 @@ export const useClickOutside = (
         listener,
     });
 
-    return innerElementRef;
+    return innerElementRef as RefObject<InnerElement>;
 };
