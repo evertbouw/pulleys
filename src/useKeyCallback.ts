@@ -6,6 +6,7 @@ import { useEventListener } from './useEventListener';
  *
  * @param keyCode - the specific key you want to listen to
  * @param callback - the function that will be called when the key has been pressed. Receives the keydown event
+ * @param active - flag to indicate if the listener should be active right now
  * @example
  * ```tsx
  * const MyComponent = () => {
@@ -17,6 +18,7 @@ import { useEventListener } from './useEventListener';
 export const useKeyCallback = (
     keyCode: string,
     callback: (event: KeyboardEvent) => void,
+    active?: boolean,
 ) => {
     const listener = useCallback(
         (event: KeyboardEvent) => {
@@ -30,5 +32,6 @@ export const useKeyCallback = (
     useEventListener({
         eventName: 'keydown',
         listener,
+        active,
     });
 };
