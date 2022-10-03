@@ -5,10 +5,12 @@ export {
     type UseClickOutsideOptions,
 } from './useClickOutside';
 export { useEvent } from './useEvent';
+export { useEventHandler } from './useEventHandler';
 export { useEventListener } from './useEventListener';
 export { useForceUpdate } from './useForceUpdate';
 export { useGetter } from './useGetter';
 export { useInterval } from './useInterval';
+export { useIsRendering } from './useIsRendering';
 export { useKeyCallback } from './useKeyCallback';
 export { useMediaQuery } from './useMediaQuery';
 export { useMousePosition } from './useMousePosition';
