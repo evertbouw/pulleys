@@ -1,29 +1,29 @@
-import { render } from "@testing-library/react";
-import { useEffect, useLayoutEffect } from "react";
-import { describe, expect, it } from "vitest";
-import { useIsRendering } from "./useIsRendering";
+import { render } from '@testing-library/react';
+import { useEffect, useLayoutEffect } from 'react';
+import { describe, expect, it } from 'vitest';
+import { useIsRendering } from './useIsRendering';
 
-describe("useIsRendering", () => {
-  it("works", () => {
-    const MockComponent = () => {
-        // eslint-disable-next-line testing-library/render-result-naming-convention
-        const isRenderingRef = useIsRendering();
+describe('useIsRendering', () => {
+    it('works', () => {
+        const MockComponent = () => {
+            // eslint-disable-next-line testing-library/render-result-naming-convention
+            const isRenderingRef = useIsRendering();
 
-        expect(isRenderingRef.current).toBe(true);
+            expect(isRenderingRef.current).toBe(true);
 
-        useLayoutEffect(() => {
-            expect(isRenderingRef.current).toBe(false);
-        }, [isRenderingRef]);
+            useLayoutEffect(() => {
+                expect(isRenderingRef.current).toBe(false);
+            }, [isRenderingRef]);
 
-        useEffect(() => {
-            expect(isRenderingRef.current).toBe(false);
-        }, [isRenderingRef]);
+            useEffect(() => {
+                expect(isRenderingRef.current).toBe(false);
+            }, [isRenderingRef]);
 
-        return null;
-    }
+            return null;
+        };
 
-    render(<MockComponent />);
+        render(<MockComponent />);
 
-    expect.assertions(3);
-  });
+        expect.assertions(3);
+    });
 });

@@ -6,7 +6,7 @@ import { isDefined } from './utils/isDefined';
 /**
  * options for useClickOutside
  */
-export interface UseClickOutsideOptions<Foo extends HTMLElement>{
+export interface UseClickOutsideOptions<Foo extends HTMLElement> {
     /**
      * a ref object to the target element
      * @defaultValue creates a ref if not provided

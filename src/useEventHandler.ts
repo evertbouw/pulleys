@@ -21,7 +21,10 @@ export const useEventHandler = <In extends unknown[], Out>(
 
     return useCallback(
         (...args) => {
-            invariant(!isRenderingRef.current, 'Do not call event handlers during render!');
+            invariant(
+                !isRenderingRef.current,
+                'Do not call event handlers during render!',
+            );
             return funcRef.current(...args);
         },
         [isRenderingRef],
