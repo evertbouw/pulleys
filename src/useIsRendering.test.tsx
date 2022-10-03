@@ -13,11 +13,11 @@ describe("useIsRendering", () => {
 
         useLayoutEffect(() => {
             expect(isRenderingRef.current).toBe(false);
-        }, []);
+        }, [isRenderingRef]);
 
         useEffect(() => {
             expect(isRenderingRef.current).toBe(false);
-        }, []);
+        }, [isRenderingRef]);
 
         return null;
     }
