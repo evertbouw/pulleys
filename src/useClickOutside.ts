@@ -1,6 +1,6 @@
 import { useCallback, useRef, type RefObject } from 'react';
 import { useEventListener } from './useEventListener';
-import { useGetter } from './useGetter';
+import { useEventHandler } from './useEventHandler';
 import { isDefined } from './utils/isDefined';
 
 /**
@@ -29,7 +29,7 @@ export interface UseClickOutsideOptions<Foo extends HTMLElement>{
  * Can be contained to a certain part of the page by passing
  * a ref to the node that counts as the outer limit. Defaults to window.
  *
- * @param callback - function to be called when the user clicked outside of the target
+ * @param handler - function to be called when the user clicked outside of the target
  * @param options - {@link UseClickOutsideOptions}
  * @returns a ref object you can attach to your node
  * @example
@@ -44,7 +44,7 @@ export interface UseClickOutsideOptions<Foo extends HTMLElement>{
  * ```
  */
 export const useClickOutside = <InnerElement extends HTMLElement>(
-    callback: () => void,
+    handler: () => void,
     {
         // eslint-disable-next-line react-hooks/rules-of-hooks
         innerElementRef = useRef<InnerElement>(null),
@@ -52,7 +52,7 @@ export const useClickOutside = <InnerElement extends HTMLElement>(
         active = true,
     }: UseClickOutsideOptions<InnerElement> = {},
 ): RefObject<InnerElement> => {
-    const getCallback = useGetter(callback);
+    const handleEvent = useEventHandler(handler);
 
     const listener = useCallback(
         (event: Event) => {
@@ -60,10 +60,10 @@ export const useClickOutside = <InnerElement extends HTMLElement>(
                 isDefined(innerElementRef.current) &&
                 !innerElementRef.current.contains(event.target as Node)
             ) {
-                getCallback()();
+                handleEvent();
             }
         },
-        [getCallback, innerElementRef],
+        [handleEvent, innerElementRef],
     );
 
     useEventListener({

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useGetter } from './useGetter';
+import { useEventHandler } from './useEventHandler';
 
 type Cleanup = void | (() => void);
 
@@ -17,7 +17,7 @@ export const useInterval = (
     callback: () => Cleanup,
     delay: number | null,
 ): void => {
-    const savedCallback = useGetter(callback);
+    const savedCallback = useEventHandler(callback);
 
     useEffect(() => {
         if (delay === null) {
@@ -27,7 +27,7 @@ export const useInterval = (
         let cleanup: Cleanup;
 
         const tick = () => {
-            cleanup = savedCallback()();
+            cleanup = savedCallback();
         };
 
         const id = setInterval(tick, delay);

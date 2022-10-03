@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useGetter } from './useGetter';
+import { useEventHandler } from './useEventHandler';
 import type { EventMapFor } from './utils/EventMapFor';
 
 /**
@@ -33,16 +33,12 @@ export const useEventListener = <
     active?: boolean;
     passive?: boolean;
 }) => {
-    const getListener = useGetter(listener);
+    const handleEvent = useEventHandler(listener);
 
     useEffect(() => {
         if (!active) return undefined;
 
         const element = target ?? window;
-
-        const handleEvent = (event: Event) => {
-            getListener()(event);
-        };
 
         element.addEventListener(
             eventName as string,
@@ -56,5 +52,5 @@ export const useEventListener = <
                 handleEvent as EventListener,
             );
         };
-    }, [eventName, target, active, getListener, passive]);
+    }, [eventName, target, active, handleEvent, passive]);
 };

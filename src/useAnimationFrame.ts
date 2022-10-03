@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useGetter } from './useGetter';
+import { useEventHandler } from './useEventHandler';
 
 /**
  * Call the provided function on every animation frame.
@@ -28,14 +28,14 @@ import { useGetter } from './useGetter';
  * ```
  */
 export const useAnimationFrame = (tick: () => void, running = true): void => {
-    const getTick = useGetter(tick);
+    const callback = useEventHandler(tick);
 
     useEffect(() => {
         let frameId: number;
 
         const loop = () => {
             if (running) {
-                getTick()();
+                callback();
                 frameId = requestAnimationFrame(loop);
             }
         };
@@ -45,5 +45,5 @@ export const useAnimationFrame = (tick: () => void, running = true): void => {
         return () => {
             cancelAnimationFrame(frameId);
         };
-    }, [getTick, running]);
+    }, [callback, running]);
 };
