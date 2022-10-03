@@ -8,10 +8,16 @@
         "eslint:recommended",
         "plugin:react/recommended",
         "plugin:react-hooks/recommended",
-        "plugin:@typescript-eslint/recommended",
-        "plugin:testing-library/react"
+        "plugin:@typescript-eslint/recommended"
     ],
-    "overrides": [],
+    "overrides": [
+        {
+            "files": ["*.test.{ts,tsx}"],
+            "extends": [
+                "plugin:testing-library/react"
+            ]
+        }
+    ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "ecmaVersion": "latest",
