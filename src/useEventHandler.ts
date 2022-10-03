@@ -1,5 +1,6 @@
 import { useCallback, useLayoutEffect, useRef } from 'react';
 import { useIsRendering } from './useIsRendering';
+import { invariant } from './utils/invariant';
 
 type Fn<In extends unknown[], Out> = (...data: In) => Out;
 
@@ -20,10 +21,7 @@ export const useEventHandler = <In extends unknown[], Out>(
 
     return useCallback(
         (...args) => {
-            if (isRenderingRef.current)
-                throw new Error(
-                    'Do not call event handlers during render!',
-                );
+            invariant(!isRenderingRef.current, 'Do not call event handlers during render!');
             return funcRef.current(...args);
         },
         [isRenderingRef],
