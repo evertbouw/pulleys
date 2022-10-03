@@ -15,3 +15,4 @@ export { useMousePosition } from './useMousePosition';
 export { usePreventLeave } from './usePreventLeave';
 export { useUpdateEffect } from './useUpdateEffect';
 export { useWindowSize } from './useWindowSize';
+export * from './utils';
