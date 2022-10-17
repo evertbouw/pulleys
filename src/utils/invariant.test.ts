@@ -4,7 +4,7 @@ import { invariant } from './invariant';
 test('invariant', () => {
   expect(() => {
     invariant(false);
-  }).toThrowError('Invariant Violation');
+  }).toThrowError('Invariant violation');
 
   expect(() => {
     invariant(false, 'wrong');
