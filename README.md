@@ -2,6 +2,11 @@
 
 Do the heavy lifting with these React hooks!
 
+![](https://img.shields.io/github/issues/evertbouw/pulleys)
+![](https://img.shields.io/badge/coverage-100%25-brightgreen)
+![](https://img.shields.io/npm/dm/@evertbouw/pulleys)
+![](https://img.shields.io/github/sponsors/evertbouw)
+
 ## installing
 
 ```sh
