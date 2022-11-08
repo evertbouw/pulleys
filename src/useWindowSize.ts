@@ -1,7 +1,8 @@
 import { useEvent } from './useEvent';
 
-const getWindowSize = (): [number, number] =>
-    [window.innerWidth, window.innerHeight] as [number, number];
+type WindowSize = readonly [number, number];
+
+const getWindowSize = () => [window.innerWidth, window.innerHeight] as WindowSize;
 
 /**
  * Get the width and height of the viewport
@@ -15,7 +16,7 @@ const getWindowSize = (): [number, number] =>
  * }
  * ```
  */
-export const useWindowSize = (): [number, number] =>
+export const useWindowSize = (): WindowSize =>
     useEvent({
         eventName: 'resize',
         getValue: getWindowSize,

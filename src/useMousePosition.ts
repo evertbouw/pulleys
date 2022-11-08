@@ -1,10 +1,12 @@
 import { useEvent } from './useEvent';
 
+type Coordinates = readonly [number, number];
+
 const getValue = ({ clientX, clientY }: MouseEvent) =>
-    [clientX, clientY] as [number, number];
+    [clientX, clientY] as Coordinates;
 
 const initialState = () =>
-    [window.innerWidth / 2, window.innerHeight / 2] as [number, number];
+    [window.innerWidth / 2, window.innerHeight / 2] as Coordinates;
 
 /**
  * Get the X and Y coordinates of the mouse cursor
@@ -18,7 +20,7 @@ const initialState = () =>
  * }
  * ```
  */
-export const useMousePosition = (): [number, number] =>
+export const useMousePosition = (): Coordinates =>
     useEvent({
         eventName: 'mousemove',
         getValue,
