@@ -61,6 +61,8 @@ jobs:
         run: pnpm build
 
   generate_docs:
+    needs: install
+    runs-on: ubuntu-latest
     steps:
       - name: Generate docs
         run: pnpm docs:generate
