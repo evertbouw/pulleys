@@ -56,6 +56,6 @@ jobs:
       - name: Publish github pages
         run: |
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/evertbouw/pulleys.git
-          npx gh-pages -d build -u "github-actions-bot <support+actions@github.com>"
+          npx gh-pages -d docs -u "github-actions-bot <support+actions@github.com>"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
