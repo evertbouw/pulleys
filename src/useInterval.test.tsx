@@ -29,6 +29,22 @@ describe('useInterval', () => {
         expect(callback).toBeCalledTimes(0);
     });
 
+    it('handles rerendering', () => {
+        let delay = 1;
+        const callback = vi.fn();
+        const { rerender } = renderHook(() => useInterval(callback, delay));
+
+        vi.advanceTimersByTime(5);
+        delay++;
+        rerender();
+
+        expect(callback).toBeCalledTimes(5);
+
+        vi.advanceTimersByTime(5);
+
+        expect(callback).toBeCalledTimes(7);
+    });
+
     it('handles cleanup', () => {
         let delay = 1;
         const cleanup = vi.fn();

@@ -13,7 +13,7 @@ describe('useAnimationFrame', () => {
 
     it('works', () => {
         const callback = vi.fn();
-        renderHook(() => useAnimationFrame(callback, true));
+        renderHook(() => useAnimationFrame(callback));
 
         vi.advanceTimersByTime(100);
 

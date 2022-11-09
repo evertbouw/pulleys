@@ -4,6 +4,16 @@ import { useUpdateEffect } from './useUpdateEffect';
 
 describe('useUpdateEffect', () => {
     it('works', () => {
+        const effect = vi.fn();
+
+        const { rerender } = renderHook(() => useUpdateEffect(effect));
+        expect(effect).not.toHaveBeenCalled();
+        rerender();
+        expect(effect).toHaveBeenCalledOnce();
+        rerender();
+    });
+
+    it('works with cleanup', () => {
         const cleanup = vi.fn();
         const effect = vi.fn().mockImplementation(() => cleanup);
         let count = 0;

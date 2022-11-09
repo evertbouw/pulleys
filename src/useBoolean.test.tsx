@@ -5,7 +5,7 @@ import { useBoolean } from './useBoolean';
 
 describe('useBoolean', () => {
     it('works', () => {
-        const { result } = renderHook(() => useBoolean(false));
+        const { result } = renderHook(() => useBoolean());
 
         let [state, setters] = result.current;
         expect(state).toBe(false);

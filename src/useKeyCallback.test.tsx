@@ -10,6 +10,7 @@ describe('useKeyCallback', () => {
         renderHook(() => useKeyCallback('f', callback));
 
         await user.keyboard('f');
+        await user.keyboard('e');
 
         expect(callback).toHaveBeenCalledOnce();
     });
