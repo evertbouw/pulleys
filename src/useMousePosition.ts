@@ -1,6 +1,7 @@
 import { useEvent } from './useEvent';
 
-type Coordinates = readonly [number, number];
+/** an array with X and Y coordinates */
+export type Coordinates = readonly [number, number];
 
 const getValue = ({ clientX, clientY }: MouseEvent) =>
     [clientX, clientY] as Coordinates;

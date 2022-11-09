@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { useEventHandler } from './useEventHandler';
 
-type Cleanup = void | (() => void);
+/** you can return a function that'll run after clearing the interval */
+export type Cleanup = void | (() => void);
 
 /**
  * It's Dan Abramov's declarative setInterval hook

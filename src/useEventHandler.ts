@@ -2,7 +2,8 @@ import { useCallback, useLayoutEffect, useRef } from 'react';
 import { useIsRendering } from './useIsRendering';
 import { invariant } from './utils/invariant';
 
-type Fn<In extends unknown[], Out> = (...data: In) => Out;
+/** just a generic function type */
+export type Fn<In extends unknown[], Out> = (...data: In) => Out;
 
 /**
  * Like the [useEvent RFC](https://github.com/reactjs/rfcs/blob/useevent/text/0000-useevent.md) but implemented in userland as well as it goes.
