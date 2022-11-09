@@ -3,7 +3,7 @@ on:
   - pull_request
 
 jobs:
-  cache-and-install:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -38,9 +38,12 @@ jobs:
 
       - name: Install dependencies
         run: pnpm install
-        
+
       - name: Lint
         run: pnpm lint
+        
+      - name: Typecheck
+        run: pnpm tsc
         
       - name: Test
         run: pnpm coverage
