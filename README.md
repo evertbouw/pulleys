@@ -2,7 +2,7 @@
 
 Do the heavy lifting with these React hooks!
 
-[![.github/workflows/ci.yml](https://github.com/evertbouw/pulleys/actions/workflows/ci.yml/badge.svg)](https://github.com/evertbouw/pulleys/actions/workflows/ci.yml)
+[![.github/workflows/cd.yml](https://github.com/evertbouw/pulleys/actions/workflows/cd.yml/badge.svg)](https://github.com/evertbouw/pulleys/actions/workflows/cd.yml)
 [![](https://img.shields.io/github/issues/evertbouw/pulleys)](https://github.com/evertbouw/pulleys/issues)
 ![](https://img.shields.io/badge/coverage-100%25-brightgreen)
 [![](https://img.shields.io/npm/dm/@evertbouw/pulleys)](https://www.npmjs.com/package/@evertbouw/pulleys)
