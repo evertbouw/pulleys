@@ -3,7 +3,8 @@ import { useEvent } from './useEvent';
 /** an array with X and Y dimensions */
 export type Dimensions = readonly [number, number];
 
-const getWindowSize = () => [window.innerWidth, window.innerHeight] as Dimensions;
+const getWindowSize = () =>
+    [window.innerWidth, window.innerHeight] as Dimensions;
 
 /**
  * Get the width and height of the viewport

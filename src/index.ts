@@ -2,9 +2,9 @@ export { useAnimationFrame } from './useAnimationFrame';
 export { useBoolean } from './useBoolean';
 export {
     useClickOutside,
-    type UseClickOutsideOptions
+    type UseClickOutsideOptions,
 } from './useClickOutside';
-export { useDebounce } from "./useDebounce";
+export { useDebounce } from './useDebounce';
 export { useEvent } from './useEvent';
 export { useEventHandler, type Fn } from './useEventHandler';
 export { useEventListener } from './useEventListener';
@@ -16,7 +16,7 @@ export { useKeyCallback } from './useKeyCallback';
 export { useMediaQuery } from './useMediaQuery';
 export { useMousePosition, type Coordinates } from './useMousePosition';
 export { usePreventLeave } from './usePreventLeave';
-export { useThrottle } from "./useThrottle";
+export { useThrottle } from './useThrottle';
 export { useUpdateEffect } from './useUpdateEffect';
 export { useWindowSize, type Dimensions } from './useWindowSize';
 export * from './utils';
