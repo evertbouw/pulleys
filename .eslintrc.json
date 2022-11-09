@@ -15,9 +15,7 @@
     "overrides": [
         {
             "files": ["*.test.{ts,tsx}"],
-            "extends": [
-                "plugin:testing-library/react"
-            ]
+            "extends": ["plugin:testing-library/react"]
         }
     ],
     "parser": "@typescript-eslint/parser",

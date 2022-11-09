@@ -1,71 +1,71 @@
 {
-  "name": "@evertbouw/pulleys",
-  "version": "1.0.0",
-  "main": "./lib/cjs/index.js",
-  "module": "./lib/esm/index.js",
-  "types": "./lib/esm/index.d.ts",
-  "files": [
-    "./lib"
-  ],
-  "sideEffects": false,
-  "repository": "git@github.com:evertbouw/pulleys.git",
-  "homepage": "https://evertbouw.github.io/pulleys",
-  "author": "Evert Bouw <bouw@outlook.com>",
-  "license": "MIT",
-  "scripts": {
-    "build:esm": "tsc --project tsconfig.esm.json",
-    "build:cjs": "tsc --project tsconfig.cjs.json",
-    "build": "run-s clean build:esm build:cjs",
-    "clean": "rimraf ./lib",
-    "test": "vitest",
-    "coverage": "vitest run --coverage",
-    "lint": "eslint src",
-    "fmt": "prettier --write src/*.{ts,tsx}",
-    "docs:clean": "rimraf ./docs",
-    "docs:generate": "typedoc src/index.ts",
-    "docs:deploy": "gh-pages -d docs",
-    "docs:publish": "run-s docs:clean docs:generate docs:deploy"
-  },
-  "devDependencies": {
-    "@testing-library/dom": "^8.19.0",
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^14.4.3",
-    "@tsconfig/vite-react": "^1.0.1",
-    "@types/react": "^18.0.25",
-    "@types/react-dom": "^18.0.8",
-    "@typescript-eslint/eslint-plugin": "^5.42.1",
-    "@typescript-eslint/parser": "^5.42.1",
-    "@vitejs/plugin-react": "^2.2.0",
-    "@vitest/coverage-istanbul": "^0.25.1",
-    "eslint": "^8.27.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-react": "^7.31.10",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-testing-library": "^5.9.1",
-    "eslint-plugin-tsdoc": "^0.2.17",
-    "gh-pages": "^4.0.0",
-    "jsdom": "^20.0.2",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.7.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "rimraf": "^3.0.2",
-    "typedoc": "^0.23.20",
-    "typescript": "^4.8.4",
-    "vite": "^3.2.3",
-    "vitest": "^0.25.1"
-  },
-  "peerDependencies": {
-    "react": ">16.8.0",
-    "react-dom": ">16.8.0"
-  },
-  "optionalPeerDependencies": {
-    "@types/react": ">16.8.0",
-    "@types/react-dom": ">16.8.0"
-  },
-  "resolutions": {
-    "@types/node": "npm:@evertbouw/empty",
-    "@types/jest": "npm:@evertbouw/empty"
-  }
+    "name": "@evertbouw/pulleys",
+    "version": "1.0.0",
+    "main": "./lib/cjs/index.js",
+    "module": "./lib/esm/index.js",
+    "types": "./lib/esm/index.d.ts",
+    "files": [
+        "./lib"
+    ],
+    "sideEffects": false,
+    "repository": "git@github.com:evertbouw/pulleys.git",
+    "homepage": "https://evertbouw.github.io/pulleys",
+    "author": "Evert Bouw <bouw@outlook.com>",
+    "license": "MIT",
+    "scripts": {
+        "build:esm": "tsc --project tsconfig.esm.json",
+        "build:cjs": "tsc --project tsconfig.cjs.json",
+        "build": "run-s clean build:esm build:cjs",
+        "clean": "rimraf ./lib",
+        "test": "vitest",
+        "coverage": "vitest run --coverage",
+        "lint": "eslint src",
+        "fmt": "prettier --write src/*.{ts,tsx}",
+        "docs:clean": "rimraf ./docs",
+        "docs:generate": "typedoc src/index.ts",
+        "docs:deploy": "gh-pages -d docs",
+        "docs:publish": "run-s docs:clean docs:generate docs:deploy"
+    },
+    "devDependencies": {
+        "@testing-library/dom": "^8.19.0",
+        "@testing-library/jest-dom": "^5.16.5",
+        "@testing-library/react": "^13.4.0",
+        "@testing-library/user-event": "^14.4.3",
+        "@tsconfig/vite-react": "^1.0.1",
+        "@types/react": "^18.0.25",
+        "@types/react-dom": "^18.0.8",
+        "@typescript-eslint/eslint-plugin": "^5.42.1",
+        "@typescript-eslint/parser": "^5.42.1",
+        "@vitejs/plugin-react": "^2.2.0",
+        "@vitest/coverage-istanbul": "^0.25.1",
+        "eslint": "^8.27.0",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-react": "^7.31.10",
+        "eslint-plugin-react-hooks": "^4.6.0",
+        "eslint-plugin-testing-library": "^5.9.1",
+        "eslint-plugin-tsdoc": "^0.2.17",
+        "gh-pages": "^4.0.0",
+        "jsdom": "^20.0.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.7.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "rimraf": "^3.0.2",
+        "typedoc": "^0.23.20",
+        "typescript": "^4.8.4",
+        "vite": "^3.2.3",
+        "vitest": "^0.25.1"
+    },
+    "peerDependencies": {
+        "react": ">16.8.0",
+        "react-dom": ">16.8.0"
+    },
+    "optionalPeerDependencies": {
+        "@types/react": ">16.8.0",
+        "@types/react-dom": ">16.8.0"
+    },
+    "resolutions": {
+        "@types/node": "npm:@evertbouw/empty",
+        "@types/jest": "npm:@evertbouw/empty"
+    }
 }

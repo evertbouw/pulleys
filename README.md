@@ -34,10 +34,10 @@ https://evertbouw.github.io/pulleys
 
 ## contributing
 
-Feel free to open PRs and issues for more hooks or documentation! 
+Feel free to open PRs and issues for more hooks or documentation!
 
 ## chat
 
-Come hang out in the Reactiflux discord! There isn't a specific channel for this library or even hooks in general. 
+Come hang out in the Reactiflux discord! There isn't a specific channel for this library or even hooks in general.
 
 https://www.reactiflux.com/
