@@ -7,5 +7,8 @@ export default defineConfig({
     include: ["**/*.test.ts", "**/*.test.tsx"],
     environment: "jsdom",
     setupFiles: ['./setupTests.ts'],
+    coverage: {
+      provider: 'istanbul'
+    }
   },
 });
