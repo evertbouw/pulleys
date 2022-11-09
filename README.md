@@ -2,11 +2,11 @@
 
 Do the heavy lifting with these React hooks!
 
-[![.github/workflows/main.yml](https://github.com/evertbouw/pulleys/actions/workflows/main.yml/badge.svg)](https://github.com/evertbouw/pulleys/actions/workflows/main.yml)
-![](https://img.shields.io/github/issues/evertbouw/pulleys)
+[![.github/workflows/ci.yml](https://github.com/evertbouw/pulleys/actions/workflows/ci.yml/badge.svg)](https://github.com/evertbouw/pulleys/actions/workflows/ci.yml)
+[![](https://img.shields.io/github/issues/evertbouw/pulleys)](https://github.com/evertbouw/pulleys/issues)
 ![](https://img.shields.io/badge/coverage-100%25-brightgreen)
-![](https://img.shields.io/npm/dm/@evertbouw/pulleys)
-![](https://img.shields.io/github/sponsors/evertbouw)
+[![](https://img.shields.io/npm/dm/@evertbouw/pulleys)](https://www.npmjs.com/package/@evertbouw/pulleys)
+[![](https://img.shields.io/github/sponsors/evertbouw)](https://github.com/sponsors/evertbouw/)
 
 ## installing
 

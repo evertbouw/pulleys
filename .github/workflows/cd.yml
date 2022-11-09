@@ -1,0 +1,16 @@
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  install_and_build:
+    uses: ./.github/workflows/ci.yml
+
+  deploy_docs:
+    steps:
+      - name: Publish github pages
+        run: |
+          git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/evertbouw/pulleys.git
+          npx gh-pages -d docs -u "github-actions-bot <support+actions@github.com>"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
