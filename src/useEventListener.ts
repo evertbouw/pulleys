@@ -12,7 +12,7 @@ import type { EventMapFor } from './utils/EventMapFor';
  *     listener: event => console.log(event.key),
  *   });
  *
- *   return <div>Last used key was {key}</div>;
+ *   return <div />;
  * }
  * ```
  */
