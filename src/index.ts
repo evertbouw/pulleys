@@ -1,5 +1,6 @@
 export { useAnimationFrame } from './useAnimationFrame';
 export { useBoolean } from './useBoolean';
+export { useCache } from './useCache';
 export {
     useClickOutside,
     type UseClickOutsideOptions,
