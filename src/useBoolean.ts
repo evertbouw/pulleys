@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react';
+import { StateInitializer } from './utils';
 
 /**
  * State preconfigured to do everything you could want with a boolean value.
@@ -21,7 +22,7 @@ import { useMemo, useState } from 'react';
  * }
  * ```
  */
-export const useBoolean = (initializer: boolean | (() => boolean) = false) => {
+export const useBoolean = (initializer: StateInitializer<boolean> = false) => {
     const [state, setState] = useState(initializer);
 
     const setters = useMemo(

@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react';
 import { useEventListener } from './useEventListener';
+import type { StateInitializer } from './utils';
 import type { EventMapFor } from './utils/EventMapFor';
 
 /**
@@ -35,7 +36,7 @@ export const useEvent = <
     /** function that receives the event and should return the value you are interested in */
     getValue: (event: Event) => Value;
     /** initial state or function that returns initial state */
-    initialState: Value | (() => Value);
+    initialState: StateInitializer<Value>;
 }): Value => {
     const [state, setState] = useState(initialState);
 
