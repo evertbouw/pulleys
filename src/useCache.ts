@@ -7,18 +7,12 @@ const cache = new Map();
  * @returns value returned by create function
  * @example
  * ```ts
- *  export const FormattedRelativeTime = ({
- *      value,
- *      unit,
- *      localeMatcher,
- *      numeric,
- *      style,
- *  }: FormattedRelativeTimeProps) => {
+ *  export const FormattedRelativeTime = ({ value, unit, ...options }: FormattedRelativeTimeProps) => {
  *      const { i18n } = useLingui();
  *
  *      const formatter = useCache(
- *          () => new Intl.RelativeTimeFormat(i18n.locale, { localeMatcher, numeric, style }),
- *          ["FormattedRelativeTime", i18n.locale, localeMatcher, numeric, style]
+ *          () => new Intl.RelativeTimeFormat(i18n.locale, options),
+ *          ["FormattedRelativeTime", i18n.locale, JSON.stringify(options)]
  *      );
  *
  *      return formatter.format(value, unit) as unknown as JSX.Element;
