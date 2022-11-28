@@ -1,5 +1,6 @@
 import { useCallback, useRef } from 'react';
 import { useEventHandler } from './useEventHandler';
+import { Fn } from './utils/Fn';
 
 /**
  * Create a throttled function.
@@ -8,19 +9,19 @@ import { useEventHandler } from './useEventHandler';
  * @param ms - number of milliseconds between each call
  * @returns new throttled function
  */
-export const useThrottle = <Fn extends (...args: unknown[]) => unknown>(
-    fn: Fn,
+export const useThrottle = <In extends unknown[]>(
+    fn: Fn<In, void>,
     ms: number,
-): Fn => {
+): Fn<In, void> => {
     const callback = useEventHandler(fn);
     const timeRef = useRef(0);
 
-    return useCallback((...args: Parameters<Fn>) => {
+    return useCallback((...args: In) => {
         const now = Date.now();
         if (now > timeRef.current) {
             callback(...args);
             timeRef.current = now + ms;
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []) as Fn;
+    }, []);
 };
