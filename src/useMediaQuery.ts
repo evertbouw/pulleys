@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useCache } from './useCache';
 import { useEvent } from './useEvent';
 
 const getValue = (event: MediaQueryListEvent): boolean => event.matches;
@@ -17,7 +17,7 @@ const getValue = (event: MediaQueryListEvent): boolean => event.matches;
  * ```
  */
 export const useMediaQuery = (query: string): boolean => {
-    const target = useMemo(() => window.matchMedia(query), [query]);
+    const target = useCache(() => window.matchMedia(query), ['useMediaQuery', query]);
 
     return useEvent({
         target,
