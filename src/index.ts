@@ -7,7 +7,7 @@ export {
 } from './useClickOutside';
 export { useDebounce } from './useDebounce';
 export { useEvent } from './useEvent';
-export { useEventHandler, type Fn } from './useEventHandler';
+export { useEventHandler } from './useEventHandler';
 export { useEventListener } from './useEventListener';
 export { useForceUpdate } from './useForceUpdate';
 export { useGetter } from './useGetter';
