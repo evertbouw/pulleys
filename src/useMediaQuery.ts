@@ -17,7 +17,10 @@ const getValue = (event: MediaQueryListEvent): boolean => event.matches;
  * ```
  */
 export const useMediaQuery = (query: string): boolean => {
-    const target = useCache(() => window.matchMedia(query), ['useMediaQuery', query]);
+    const target = useCache(
+        () => window.matchMedia(query),
+        ['useMediaQuery', query],
+    );
 
     return useEvent({
         target,
