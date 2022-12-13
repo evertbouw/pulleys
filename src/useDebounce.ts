@@ -10,7 +10,7 @@ import { Fn } from './utils/Fn';
  * @returns new debounced function
  */
 export const useDebounce = <In extends unknown[]>(
-    fn: Fn<In, void>,
+    fn: Fn<In, void | Promise<void>>,
     ms: number,
 ): Fn<In, void> => {
     const callback = useEventHandler(fn);
