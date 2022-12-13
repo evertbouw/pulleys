@@ -18,6 +18,7 @@ export { useMap } from './useMap';
 export { useMediaQuery } from './useMediaQuery';
 export { useMousePosition, type Coordinates } from './useMousePosition';
 export { usePreventLeave } from './usePreventLeave';
+export { usePrevious } from './usePrevious';
 export { useSet } from './useSet';
 export { useThrottle } from './useThrottle';
 export { useUpdateEffect } from './useUpdateEffect';
