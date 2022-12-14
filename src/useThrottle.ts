@@ -10,7 +10,7 @@ import { Fn } from './utils/Fn';
  * @returns new throttled function
  */
 export const useThrottle = <In extends unknown[]>(
-    fn: Fn<In, void | Promise<void>>,
+    fn: Fn<In, void>,
     ms: number,
 ): Fn<In, void> => {
     const callback = useEventHandler(fn);
