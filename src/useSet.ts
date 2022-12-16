@@ -16,6 +16,9 @@ export const useSet = <Value>(
 
     const handlers = useMemo(
         () => ({
+            replace: (values: Iterable<Value>) => {
+                setState(new Set(values));
+            },
             add: (item: Value) => {
                 setState((current) => {
                     const newState = new Set(current);
