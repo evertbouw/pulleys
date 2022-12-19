@@ -25,6 +25,10 @@ describe('useMap', () => {
         [value, handlers] = result.current;
         expect(value.size).toBe(2);
 
+        act(() => handlers.replace({ asdf: 'ghji' }));
+        [value, handlers] = result.current;
+        expect(value.size).toBe(1);
+
         act(() => handlers.clear());
         [value, handlers] = result.current;
         expect(value.size).toBe(0);

@@ -25,6 +25,10 @@ describe('useSet', () => {
         [value, handlers] = result.current;
         expect(value.size).toBe(2);
 
+        act(() => handlers.replace(['asdf', 'ghjk', 'zxcv']));
+        [value, handlers] = result.current;
+        expect(value.size).toBe(3);
+
         act(() => handlers.clear());
         [value, handlers] = result.current;
         expect(value.size).toBe(0);
