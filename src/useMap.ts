@@ -26,10 +26,7 @@ export const useMap = <Key extends string, Value>(
     const handlers = useMemo(
         () => ({
             replace: (value: Record<Key, Value>) => {
-                setState(new Map(Object.entries(value) as [
-                    Key,
-                    Value,
-                ][]))
+                setState(new Map(Object.entries(value) as [Key, Value][]));
             },
             set: (key: Key, value: Value) => {
                 setState((current) => {
