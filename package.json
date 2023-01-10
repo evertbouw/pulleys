@@ -2,7 +2,7 @@
     "name": "@evertbouw/pulleys",
     "version": "1.2.0",
     "main": "./lib/cjs/index.js",
-    "module": "./lib/esm/index.js",
+    "exports": "./lib/esm/index.js",
     "types": "./lib/esm/index.d.ts",
     "files": [
         "./lib"
