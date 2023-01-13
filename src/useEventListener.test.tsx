@@ -65,4 +65,24 @@ describe('useEventListener', () => {
 
         expect(listener).toHaveBeenCalledOnce();
     });
+
+    it('works in safari 13', async () => {
+        const listener = vi.fn();
+        const addListener = vi.fn();
+        const removeListener = vi.fn();
+
+        const target = { addListener, removeListener } as never as MediaQueryList
+
+        const { unmount } = renderHook(() =>
+            useEventListener({
+                target,
+                eventName: 'change',
+                listener,
+            }),
+        );
+
+        expect(addListener).toHaveBeenCalledOnce();
+        unmount();
+        expect(removeListener).toHaveBeenCalledOnce();
+    });
 });

@@ -40,6 +40,14 @@ export const useEventListener = <
 
         const element = target ?? window;
 
+        if ("addListener" in element) {
+            element.addListener(handleEvent as (event: MediaQueryListEvent) => void);
+
+            return () => {
+                element.removeListener(handleEvent as (event: MediaQueryListEvent) => void);
+            };
+        }
+
         element.addEventListener(
             eventName as string,
             handleEvent as EventListener,
