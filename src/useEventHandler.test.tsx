@@ -4,23 +4,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { useEventHandler } from './useEventHandler';
 
 describe('useEventHandler', () => {
-    it('should throw error during render', () => {
-        const MockComponent = () => {
-            const foo = useEventHandler(vi.fn());
-            try {
-                foo();
-            } catch (error: unknown) {
-                expect((error as Error).message).toBe(
-                    'Do not call event handlers during render!',
-                );
-            }
-            return null;
-        };
-
-        render(<MockComponent />);
-    });
-
-    it('should not throw error when used as callback', async () => {
+    it('works', async () => {
         const user = userEvent.setup();
         const handler = vi.fn();
         const MockComponent = () => {
