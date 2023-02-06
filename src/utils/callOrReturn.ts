@@ -1,12 +1,10 @@
 import { StateInitializer } from './StateInitializer';
 
+const isCallable = <Value>(
+    stateInitializer: StateInitializer<Value>,
+): stateInitializer is () => Value => typeof stateInitializer === 'function';
+
 export const callOrReturn = <Value>(
     stateInitializer: StateInitializer<Value>,
 ): Value =>
-    {
-        return typeof stateInitializer === 'function'
-            // @ts-expect-error ignore this
-            ? stateInitializer()
-            : stateInitializer;
-    };
-
+    isCallable(stateInitializer) ? stateInitializer() : stateInitializer;
