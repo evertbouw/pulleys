@@ -15,7 +15,19 @@
     "overrides": [
         {
             "files": ["*.test.{ts,tsx}"],
-            "extends": ["plugin:testing-library/react"]
+            "extends": ["plugin:testing-library/react"],
+            "plugins": ["vitest"],
+            "rules": {
+                "vitest/consistent-test-it": "error",
+                "vitest/expect-expect": "error",
+                "vitest/max-nested-describe": ["error", { "max": 1 }],
+                "vitest/no-conditional-tests": "error",
+                "vitest/no-focused-tests": "error",
+                "vitest/no-identical-title": "error",
+                "vitest/no-skipped-tests": "error",
+                "vitest/prefer-lowercase-title": "error",
+                "vitest/prefer-to-be": "error"
+            }
         }
     ],
     "parser": "@typescript-eslint/parser",
