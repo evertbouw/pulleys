@@ -12,7 +12,6 @@ export { useEventListener } from './useEventListener';
 export { useForceUpdate } from './useForceUpdate';
 export { useGetter } from './useGetter';
 export { useInterval, type Cleanup } from './useInterval';
-export { useIsRendering } from './useIsRendering';
 export { useKeyCallback } from './useKeyCallback';
 export { useMap } from './useMap';
 export { useMediaQuery } from './useMediaQuery';
