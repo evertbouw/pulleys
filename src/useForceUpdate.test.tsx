@@ -6,6 +6,7 @@ import { useForceUpdate } from './useForceUpdate';
 
 describe('useForceUpdate', () => {
     it('works', async () => {
+        expect.assertions(4);
         const user = userEvent.setup();
         const MockComponent = () => {
             const state = useRef(0);

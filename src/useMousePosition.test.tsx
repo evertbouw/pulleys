@@ -4,6 +4,7 @@ import { useMousePosition } from './useMousePosition';
 
 describe('useMousePosition', () => {
     it('works', async () => {
+        expect.assertions(2);
         const { result } = renderHook(() => useMousePosition());
 
         expect(result.current).toEqual([512, 384]);

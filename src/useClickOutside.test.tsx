@@ -8,6 +8,7 @@ describe('useClickOutside', () => {
     afterEach(cleanup);
 
     it('should work', async () => {
+        expect.assertions(2);
         const callback = vi.fn();
 
         const MockComponent = () => {
@@ -32,6 +33,7 @@ describe('useClickOutside', () => {
     });
 
     it('should accept outer boundary', async () => {
+        expect.assertions(3);
         const callback = vi.fn();
 
         const MockComponent = () => {

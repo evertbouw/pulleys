@@ -5,6 +5,7 @@ import { useMediaQuery } from './useMediaQuery';
 
 describe('useMediaQuery', () => {
     it('works', () => {
+        expect.assertions(2);
         let eventListener: (data: Record<string, unknown>) => void;
         window.matchMedia = vi.fn().mockImplementation(() => ({
             addEventListener: vi

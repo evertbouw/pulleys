@@ -12,6 +12,7 @@ describe('useDebounce', () => {
     });
 
     it('works', () => {
+        expect.assertions(4);
         const fn = vi.fn();
         const {
             result: { current },

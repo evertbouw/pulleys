@@ -4,6 +4,8 @@ import { usePrevious } from './usePrevious';
 
 describe('usePrevious', () => {
     it('works', () => {
+        expect.assertions(3);
+
         const { rerender, result } = renderHook(usePrevious, {
             initialProps: 5,
         });

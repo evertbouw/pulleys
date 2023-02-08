@@ -5,6 +5,7 @@ import { describe, it, expect, vi } from 'vitest';
 
 describe('useEventListener', () => {
     it('works', async () => {
+        expect.assertions(1);
         const user = userEvent.setup();
         const listener = vi.fn();
 
@@ -21,6 +22,7 @@ describe('useEventListener', () => {
     });
 
     it('can be toggled', async () => {
+        expect.assertions(3);
         const user = userEvent.setup();
         const listener = vi.fn();
 
@@ -46,6 +48,7 @@ describe('useEventListener', () => {
     });
 
     it('accepts elements', async () => {
+        expect.assertions(2);
         const user = userEvent.setup();
         const listener = vi.fn((e: MouseEvent) => {
             expect((e.currentTarget as Element).tagName).toBe('BUTTON');
@@ -67,6 +70,7 @@ describe('useEventListener', () => {
     });
 
     it('works in safari 13', async () => {
+        expect.assertions(2);
         const listener = vi.fn();
         const addListener = vi.fn();
         const removeListener = vi.fn();

@@ -5,6 +5,7 @@ import { usePreventLeave, listener } from './usePreventLeave';
 
 describe('usePreventLeave', () => {
     it('works', () => {
+        expect.assertions(1);
         renderHook(() => usePreventLeave(true));
 
         act(() => {
@@ -15,6 +16,7 @@ describe('usePreventLeave', () => {
     });
 
     it('calls prevent default and sets empty message', () => {
+        expect.assertions(2);
         const mockPreventDefault = vi.fn();
         const mockEvent = {
             preventDefault: mockPreventDefault,

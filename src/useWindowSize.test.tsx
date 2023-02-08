@@ -4,6 +4,7 @@ import { useWindowSize } from './useWindowSize';
 
 describe('useWindowSize', () => {
     it('works', () => {
+        expect.assertions(2);
         const { result } = renderHook(() => useWindowSize());
 
         expect(result.current).toEqual([1024, 768]);

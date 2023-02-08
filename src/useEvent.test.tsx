@@ -5,6 +5,7 @@ import { useEvent } from './useEvent';
 
 describe('useEvent', () => {
     it('works', async () => {
+        expect.assertions(3);
         const user = userEvent.setup();
         const eventName = 'click';
         const getValue = vi.fn((e: MouseEvent) => e.clientX);
@@ -30,6 +31,7 @@ describe('useEvent', () => {
     });
 
     it('accepts elements', async () => {
+        expect.assertions(3);
         const user = userEvent.setup();
         const eventName = 'click';
         const getValue = vi.fn(

@@ -12,6 +12,7 @@ describe('useInterval', () => {
     });
 
     it('works', () => {
+        expect.assertions(1);
         const callback = vi.fn();
         renderHook(() => useInterval(callback, 1));
 
@@ -21,6 +22,7 @@ describe('useInterval', () => {
     });
 
     it('handles no delay correctly', () => {
+        expect.assertions(1);
         const callback = vi.fn();
         renderHook(() => useInterval(callback, null));
 
@@ -30,6 +32,7 @@ describe('useInterval', () => {
     });
 
     it('handles rerendering', () => {
+        expect.assertions(2);
         let delay = 1;
         const callback = vi.fn();
         const { rerender } = renderHook(() => useInterval(callback, delay));
@@ -46,6 +49,7 @@ describe('useInterval', () => {
     });
 
     it('handles cleanup', () => {
+        expect.assertions(1);
         let delay = 1;
         const cleanup = vi.fn();
         const callback = vi.fn().mockImplementation(() => cleanup);

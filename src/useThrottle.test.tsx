@@ -12,6 +12,7 @@ describe('useThrottle', () => {
     });
 
     it('works', () => {
+        expect.assertions(1);
         const fn = vi.fn();
         const {
             result: { current },

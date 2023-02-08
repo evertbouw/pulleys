@@ -5,6 +5,7 @@ import { useSet } from './useSet';
 
 describe('useSet', () => {
     it('works', () => {
+        expect.assertions(8);
         const { result } = renderHook(() => useSet());
 
         let [value, handlers] = result.current;
@@ -35,6 +36,7 @@ describe('useSet', () => {
     });
 
     it('defaults', () => {
+        expect.assertions(2);
         const { result } = renderHook(() => useSet(() => ['foo']));
 
         const [value] = result.current;

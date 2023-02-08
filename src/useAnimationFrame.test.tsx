@@ -12,6 +12,7 @@ describe('useAnimationFrame', () => {
     });
 
     it('works', () => {
+        expect.assertions(1);
         const callback = vi.fn();
         renderHook(() => useAnimationFrame(callback));
 
@@ -21,6 +22,7 @@ describe('useAnimationFrame', () => {
     });
 
     it('cancels', () => {
+        expect.assertions(1);
         const callback = vi.fn();
         let running = true;
         const { rerender } = renderHook(() =>

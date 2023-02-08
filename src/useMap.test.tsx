@@ -5,6 +5,7 @@ import { useMap } from './useMap';
 
 describe('useMap', () => {
     it('works', () => {
+        expect.assertions(8);
         const { result } = renderHook(() => useMap());
 
         let [value, handlers] = result.current;
@@ -35,6 +36,7 @@ describe('useMap', () => {
     });
 
     it('defaults', () => {
+        expect.assertions(2);
         const { result } = renderHook(() => useMap(() => ({ foo: 1 })));
 
         const [value] = result.current;

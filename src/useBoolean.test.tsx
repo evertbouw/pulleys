@@ -5,6 +5,7 @@ import { useBoolean } from './useBoolean';
 
 describe('useBoolean', () => {
     it('works', () => {
+        expect.assertions(5);
         const { result } = renderHook(() => useBoolean());
 
         let [state, setters] = result.current;

@@ -5,6 +5,7 @@ import { useEventHandler } from './useEventHandler';
 
 describe('useEventHandler', () => {
     it('works', async () => {
+        expect.assertions(1);
         const user = userEvent.setup();
         const handler = vi.fn();
         const MockComponent = () => {

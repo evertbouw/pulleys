@@ -5,6 +5,7 @@ import { useKeyCallback } from './useKeyCallback';
 
 describe('useKeyCallback', () => {
     it('works', async () => {
+        expect.assertions(1);
         const user = userEvent.setup();
         const callback = vi.fn();
         renderHook(() => useKeyCallback('f', callback));

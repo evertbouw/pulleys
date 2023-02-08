@@ -4,6 +4,7 @@ import { useGetter } from './useGetter';
 
 describe('useGetter', () => {
     it('works', () => {
+        expect.assertions(1);
         const foo = Symbol('foo');
 
         const { result } = renderHook(() => useGetter(foo));
