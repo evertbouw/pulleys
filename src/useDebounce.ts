@@ -18,7 +18,7 @@ export const useDebounce = <In extends unknown[]>(
 
     return useCallback((...args: In) => {
         timeRef.current && window.clearTimeout(timeRef.current);
-        timeRef.current = setTimeout(() => callback(...args), ms);
+        timeRef.current = window.setTimeout(() => callback(...args), ms);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 };

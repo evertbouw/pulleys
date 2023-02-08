@@ -63,9 +63,5 @@
     "optionalPeerDependencies": {
         "@types/react": ">16.8.0",
         "@types/react-dom": ">16.8.0"
-    },
-    "resolutions": {
-        "@types/node": "npm:@evertbouw/empty",
-        "@types/jest": "npm:@evertbouw/empty"
     }
 }
