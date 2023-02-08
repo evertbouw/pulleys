@@ -15,8 +15,5 @@ export const useEventHandler = <In extends unknown[], Out>(
         funcRef.current = func;
     }, [func]);
 
-    return useCallback(
-        (...args) => funcRef.current(...args),
-        [],
-    );
+    return useCallback((...args) => funcRef.current(...args), []);
 };

@@ -71,7 +71,10 @@ describe('useEventListener', () => {
         const addListener = vi.fn();
         const removeListener = vi.fn();
 
-        const target = { addListener, removeListener } as never as MediaQueryList
+        const target = {
+            addListener,
+            removeListener,
+        } as never as MediaQueryList;
 
         const { unmount } = renderHook(() =>
             useEventListener({
