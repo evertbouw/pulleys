@@ -8,7 +8,7 @@ describe('createSafeContextHook', () => {
         vi.restoreAllMocks();
     });
 
-    it('works', () => {
+    it('throws an error if no context', () => {
         vi.spyOn(console, 'error').mockImplementation(() => {
             // not empty
         });
@@ -21,7 +21,7 @@ describe('createSafeContextHook', () => {
         }).toThrowError('Context was used without a provider');
     });
 
-    it('works', () => {
+    it('does not throw error when context found', () => {
         const myContext = createContext<string | undefined>(undefined);
         const useMyContext = createSafeContextHook(myContext);
 
