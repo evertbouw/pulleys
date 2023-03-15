@@ -5,7 +5,7 @@ import { useSet } from './useSet';
 
 describe('useSet', () => {
     it('works', () => {
-        expect.assertions(8);
+        expect.assertions(12);
         const { result } = renderHook(() => useSet());
 
         let [value, handlers] = result.current;
@@ -28,6 +28,16 @@ describe('useSet', () => {
 
         act(() => handlers.replace(['asdf', 'ghjk', 'zxcv']));
         [value, handlers] = result.current;
+        expect(value.size).toBe(3);
+
+        act(() => handlers.toggle('asdf'));
+        [value, handlers] = result.current;
+        expect(value.has('asdf')).toBe(false);
+        expect(value.size).toBe(2);
+
+        act(() => handlers.toggle('asdf'));
+        [value, handlers] = result.current;
+        expect(value.has('asdf')).toBe(true);
         expect(value.size).toBe(3);
 
         act(() => handlers.clear());

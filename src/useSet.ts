@@ -33,6 +33,17 @@ export const useSet = <Value>(
                     return newState;
                 });
             },
+            toggle: (item: Value) => {
+                setState((current) => {
+                    const newState = new Set(current);
+                    if (current.has(item)) {
+                        newState.delete(item);
+                    } else {
+                        newState.add(item);
+                    }
+                    return newState;
+                });
+            },
             clear: () => {
                 setState(new Set<Value>());
             },
