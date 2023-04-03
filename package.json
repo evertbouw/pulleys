@@ -58,11 +58,9 @@
         "vitest": "^0.29.8"
     },
     "peerDependencies": {
-        "react": ">16.8.0",
-        "react-dom": ">16.8.0"
+        "react": ">16.8.0"
     },
     "optionalPeerDependencies": {
-        "@types/react": ">16.8.0",
-        "@types/react-dom": ">16.8.0"
+        "@types/react": ">16.8.0"
     }
 }
