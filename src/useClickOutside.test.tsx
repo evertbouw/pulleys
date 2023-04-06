@@ -8,6 +8,7 @@ describe('useClickOutside', () => {
     afterEach(cleanup);
 
     it('should work', async () => {
+        const user = userEvent.setup();
         expect.assertions(2);
         const callback = vi.fn();
 
@@ -23,16 +24,17 @@ describe('useClickOutside', () => {
 
         render(<MockComponent />);
 
-        await userEvent.click(screen.getByText('foo'));
+        await user.click(screen.getByText('foo'));
 
         expect(callback).toHaveBeenCalledTimes(0);
 
-        await userEvent.click(document.body);
+        await user.click(document.body);
 
         expect(callback).toHaveBeenCalledTimes(1);
     });
 
     it('should accept outer boundary', async () => {
+        const user = userEvent.setup();
         expect.assertions(3);
         const callback = vi.fn();
 
@@ -59,15 +61,15 @@ describe('useClickOutside', () => {
 
         rerender(<MockComponent />);
 
-        await userEvent.click(screen.getByText('foo'));
+        await user.click(screen.getByText('foo'));
 
         expect(callback).toHaveBeenCalledTimes(0);
 
-        await userEvent.click(document.body);
+        await user.click(document.body);
 
         expect(callback).toHaveBeenCalledTimes(0);
 
-        await userEvent.click(screen.getByText('bar'));
+        await user.click(screen.getByText('bar'));
 
         expect(callback).toHaveBeenCalledTimes(1);
     });
