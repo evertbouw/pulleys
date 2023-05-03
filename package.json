@@ -1,9 +1,10 @@
 {
     "name": "@evertbouw/pulleys",
-    "version": "1.2.0",
-    "main": "./lib/cjs/index.js",
-    "exports": "./lib/esm/index.js",
-    "types": "./lib/esm/index.d.ts",
+    "description": "Do the heavy lifting with these React hooks!",
+    "version": "2.0.0",
+    "main": "./lib/index.js",
+    "exports": "./lib/index.mjs",
+    "types": "./lib/index.d.ts",
     "files": [
         "./lib"
     ],
@@ -13,10 +14,7 @@
     "author": "Evert Bouw <bouw@outlook.com>",
     "license": "MIT",
     "scripts": {
-        "build:esm": "tsc --project tsconfig.esm.json",
-        "build:cjs": "tsc --project tsconfig.cjs.json",
-        "build": "run-s clean build:esm build:cjs",
-        "clean": "rimraf ./lib",
+        "build": "tsup src/index.ts --format esm,cjs --dts --sourcemap --clean --out-dir lib",
         "test": "vitest",
         "coverage": "vitest run --coverage",
         "lint": "eslint src",
@@ -25,6 +23,15 @@
         "docs:generate": "typedoc src/index.ts",
         "docs:deploy": "gh-pages -d docs",
         "docs:publish": "run-s docs:clean docs:generate docs:deploy"
+    },
+    "engines": {
+        "node": ">=16.0.0"
+    },
+    "peerDependencies": {
+        "react": ">16.8.0"
+    },
+    "optionalPeerDependencies": {
+        "@types/react": ">16.8.0"
     },
     "devDependencies": {
         "@testing-library/dom": "^9.2.0",
@@ -52,15 +59,10 @@
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "rimraf": "^5.0.0",
+        "tsup": "^6.7.0",
         "typedoc": "^0.24.6",
         "typescript": "^5.0.4",
         "vite": "^4.3.1",
         "vitest": "^0.30.1"
-    },
-    "peerDependencies": {
-        "react": ">16.8.0"
-    },
-    "optionalPeerDependencies": {
-        "@types/react": ">16.8.0"
     }
 }
